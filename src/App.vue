@@ -1,32 +1,51 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <mytitle class="title"></mytitle>
+     <router-view  class="router"></router-view>
+     <playback class="ctx"></playback>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import mytitle from "./components/title.vue"
+import Playback from "./components/Playback.vue"
+export default {
+  name: 'Home',
+  components: {
+    mytitle:mytitle,
+    playback:Playback
+  },
+  data(){
+    return {}
+  },
+  methods:{
+    
+  }
 }
-
-#nav {
-  padding: 30px;
+</script>
+<style lang="scss">
+*{
+    user-select:none;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+#app{
+   display: flex;
+   flex-direction: column;
+   width:100%;
+   height: 100%;
+   background: blue;
+   .title{
+      width:100%;
+      height:80px;
+   }
+   .router{
+     width:100%;
+     height:200px;
+     flex:1;
+     background: wheat;
+   }
+   .ctx{
+     width:100%;
+     height:3.5rem;
+   }
 }
 </style>
